@@ -5,5 +5,17 @@ libs = ["lib"]
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
 remappings = [
-    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/"
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+    # Chainlink 主包 - 使用 chainlink-local 的更新版本
+    "@chainlink/contracts/=lib/chainlink-local/lib/chainlink-evm/contracts/",
+    # CCIP 相关合约 - 使用 chainlink-local 的更新版本
+    "@chainlink/contracts-ccip/=lib/chainlink-local/lib/chainlink-ccip/chains/evm/",
+     # Chainlink Local Simulator
+    "@chainlink/local/=lib/chainlink-local/",
+
 ]
+
+# RPC URLs for testing
+[rpc_endpoints]
+eth = "https://ethereum-sepolia.publicnode.com"
+arb = "https://sepolia-rollup.arbitrum.io/rpc"

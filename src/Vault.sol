@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.30;
-
+pragma solidity 0.8.24;
 import "./interfaces/IRebaseToken.sol";
 /**
  * @title Vault contract 金库
