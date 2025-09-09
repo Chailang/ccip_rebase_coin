@@ -2,7 +2,7 @@
 src = "src"
 out = "out"
 libs = ["lib"]
-
+#via_ir = true 深度调用报错时可开启
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
 remappings = [
     "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
@@ -15,7 +15,27 @@ remappings = [
 
 ]
 
+# zkSync 配置
+[profile.zksync]
+src = "src"
+out = "out"
+libs = ["lib"]
+# zkSync 特定的编译器设置
+via_ir = true
+optimizer = true
+optimizer_runs = 200
+# zkSync 重映射
+remappings = [
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+    "@chainlink/contracts/=lib/chainlink-local/lib/chainlink-evm/contracts/",
+    "@chainlink/contracts-ccip/=lib/chainlink-local/lib/chainlink-ccip/chains/evm/",
+    "@chainlink/local/=lib/chainlink-local/",
+]
+
 # RPC URLs for testing
 [rpc_endpoints]
 eth = "https://ethereum-sepolia.publicnode.com"
 arb = "https://sepolia-rollup.arbitrum.io/rpc"
+# zkSync 网络
+zksync_sepolia = "https://sepolia.era.zksync.dev"
+zksync_mainnet = "https://mainnet.era.zksync.io"
