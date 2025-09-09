@@ -163,9 +163,9 @@ cast send ${VAULT_ADDRESS} --value ${AMOUNT} --rpc-url ${SEPOLIA_RPC_URL} --acco
 
 # Wait a beat for some interest to accrue # 留出时间产生利息（可按需添加等待）
 
-# Configure the pool on ZKsync # 在 zkSync 上配置池
-echo "Configuring the pool on ZKsync..." # 输出提示
-cast send ${ZKSYNC_POOL_ADDRESS}  --rpc-url ${ZKSYNC_SEPOLIA_RPC_URL} --account metaMask-Test1 "applyChainUpdates(uint64[],(uint64,bytes[],bytes,(bool,uint128,uint128),(bool,uint128,uint128))[])" "[${SEPOLIA_CHAIN_SELECTOR}]" "[(${SEPOLIA_CHAIN_SELECTOR},[$(cast abi-encode "f(address)" ${SEPOLIA_POOL_ADDRESS})],$(cast abi-encode "f(address)" ${SEPOLIA_REBASE_TOKEN_ADDRESS}),(false,0,0),(false,0,0))]" # 应用链更新，加入 Sepolia 远程链配置
+# Configure the pool on ZKsync # 在 zkSync 上配置池 多余删除掉
+# echo "Configuring the pool on ZKsync..." # 输出提示
+# cast send ${ZKSYNC_POOL_ADDRESS}  --rpc-url ${ZKSYNC_SEPOLIA_RPC_URL} --account metaMask-Test1 "applyChainUpdates(uint64[],(uint64,bytes[],bytes,(bool,uint128,uint128),(bool,uint128,uint128))[])" "[${SEPOLIA_CHAIN_SELECTOR}]" "[(${SEPOLIA_CHAIN_SELECTOR},[$(cast abi-encode "f(address)" ${SEPOLIA_POOL_ADDRESS})],$(cast abi-encode "f(address)" ${SEPOLIA_REBASE_TOKEN_ADDRESS}),(false,0,0),(false,0,0))]" # 应用链更新，加入 Sepolia 远程链配置
 
 # Bridge the funds using the script to zksync  # 使用脚本将资金桥接到 zkSync
 echo "Bridging the funds using the script to ZKsync..." # 输出提示
